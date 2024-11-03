@@ -1,0 +1,182 @@
+let array = [4, 6, 8, 45];
+/*anchor
+1. Create an array called ages that contains the following values: 3, 9, 23, 64, 2, 8, 28, 93.*/
+let ages = [3, 9, 23, 64, 2, 8, 28, 93];
+console.log("Ages:", ages);
+
+/*anchor
+1a. Programmatically subtract the value of the first element in the array from the value in the last 
+element of the array.*/
+let newElement = ages[ages.length-1]- ages[0];
+console.log("New Age:", newElement);
+
+/*anchor
+1b. Add a new age to your array and repeat the step above to ensure it is dynamic. (works for arrays
+ of different lengths).*/
+ages.push(41);
+newElement = ages[ages.length-1]- ages[0];
+console.log("New Age:", newElement);
+
+/*anchor
+1c. Use a loop to iterate through the array and calculate the average age.*/
+let sumOfAges = 0;
+for(let i = 0; i < ages.length; i++){
+    sumOfAges += ages[i];}
+console.log("total sum:", sumOfAges);
+
+let average = sumOfAges / ages.length;
+console.log(average);
+
+/*anchor
+2. Create an array called names that contains the following values: 'Sam', 'Tommy', 'Tim', 'Sally', 
+'Buck', 'Bob'.*/
+let names = ['Sam', 'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'];
+console.log("Names:", names);
+
+/*anchor
+2a. Use a loop to iterate through the array and calculate the average number of letters per name.*/
+let lettersInName = 0
+
+for (let i = 0; i < names.length; i++){
+lettersInName += names[i].length;
+console.log("name:", names[i], "- letters in name added to total:", lettersInName);}
+console.log("average letters in name:", (lettersInName / names.length));
+
+/*anchor
+2b. Use a loop to iterate through the array again and concatenate all the names together, separated 
+by spaces.*/
+let concatNames = "";
+for (let i = 0; i < names.length; i++){
+    concatNames = concatNames.concat(names[i]) + " ";
+    console.log(i, "Names Concatenated", concatNames)}
+
+/*anchor
+3. How do you access the last element of any array?*/
+array[Array.length - 1];
+
+/*anchor
+4. How do you access the first element of any array?*/
+array[0];
+
+/*anchor
+5. Create a new array called nameLengths. Write a loop to iterate over the previously created names 
+array and add the length of each name to the nameLengths array.*/
+let namelengths = [];
+for (let i = 0; i < names.length; i++){
+    namelengths.push(names[i].length);
+    console.log("Name Lengths:", namelengths);}
+
+/*anchor
+6. Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array.*/
+let sumOfNameLengths = 0;
+for(let i = 0; i < namelengths.length; i++){
+    sumOfNameLengths += namelengths[i];}
+console.log("total sum:", sumOfNameLengths);
+
+/*anchor
+7. Write a function that takes two parameters, word and n, as arguments and returns the word concatenated 
+to itself n number of times. (i.e. if I pass in 'Hello' and 3, I would expect the function to return 'HelloHelloHello').*/
+function concatedWords(word, n){
+    let wordString = word.repeat(n);
+    console.log(wordString);}
+
+concatedWords("Hello", 3);
+
+/*anchor
+8. Write a function that takes two parameters, firstName and lastName, and returns a full name. 
+The full name should be the first and the last name separated by a space.*/
+function combineName(firstName, lastName){
+    let fullName = firstName + " " + lastName;
+    console.log(fullName);}
+
+combineName("Scott", "Gasser");
+
+/*anchor
+9. Write a function that takes an array of numbers and returns true if the sum of all the numbers in 
+the array is greater than 100.*/
+let randoNumHi = [56, 89, 12, 644, 44];
+let randoNumLo = [1, 4, 9, 3, 7, 6];
+
+function sumOFRandos(array){
+    let sum = 0;
+    for (let i = 0; i < array.length; i++){
+        sum += array[i];
+        console.log("Total", sum);}
+    if (sum > 100){
+        console.log("Total", sum, true);
+        return true;}
+    else {
+        console.log("total", sum, false);
+        return false}}
+
+sumOFRandos(randoNumHi);
+
+/*anchor
+10. Write a function that takes an array of numbers and returns the average of all the elements in the array.*/
+let funNum = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 5, 7, 8, 72, 6295357316]; 
+
+function someBigNum(array){
+    let some = 0;
+    for (let i = 0; i < array.length; i++){
+        some += array[i];
+        console.log("Total", some);}
+    let aveNum = some / array.length;
+    console.log("average number:", aveNum);
+}
+
+someBigNum(funNum);
+
+/*anchor
+11. Write a function that takes two arrays of numbers and returns true if the average of the 
+elements in the first array is greater than the average of the elements in the second array.*/
+function averages(array1, array2){
+    let total1 = 0;
+    let total2 = 0;
+    for (let i = 0; i < array1.length; i++){
+        total1 += array1[i];
+        console.log("Total of 1st Array:", total1);}
+    for (let i = 0; i < array2.length; i++){
+        total2 += array2[i];
+        console.log("Total of 2nd Array:", total2);}
+
+    let AveN1 = total1 / array1.length;
+    let aveN2 = total2 / array2.length;
+    console.log("Average of 1st Array:", AveN1);
+    console.log("Average of 2nd Array:", aveN2);
+        
+    if (AveN1 > aveN2){
+        console.log(true);
+        return true;
+    }
+    else {console.log("Not true");}
+}
+
+averages(randoNumLo, funNum);
+
+/*anchor
+12. Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, 
+and returns true if it is hot outside and if moneyInPocket is greater than 10.50.*/
+function willBuyDrink(isHotOutside, moneyInPocket){
+    console.log("parameters", isHotOutside, moneyInPocket);
+    let buyDrink = isHotOutside === true && moneyInPocket > 10.5;
+    console.log("Buy a drink?", buyDrink);
+    return buyDrink;
+}
+
+willBuyDrink(true, 85);
+/*anchor
+13. Create a function of your own that solves a problem. In comments, write what the function does and 
+why you created it.*/
+/*anchor
+This problem figures out how many minutes I need to work to cover the cost of my morning drink.*/
+
+let hourlyPayRate = 0
+let drinkCost = 0
+
+function minutesToWork(hourlyPayRate, drinkCost){
+    let dolByMin = (hourlyPayRate / 60) * .7; /*.7 is for an estimate for tax deductions*/
+       minutesNeeded = drinkCost / dolByMin;
+    console.log("Minutes I need to work to cover the cost of my drink:", minutesNeeded);
+}
+
+minutesToWork(26.5, 5);
